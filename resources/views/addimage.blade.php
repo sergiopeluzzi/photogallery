@@ -30,8 +30,7 @@
                 </ul>
             </div>
         @endif
-        <form name="addimagetoalbum" method="POST" action="{{ route('add_image_to_album')}}" enctype="multipart/form-data">
-            {!! Form::hidden('_token', csrf_token()) !!}
+        {!! Form::open(['name' => 'addimagetoalbum', 'method' => 'POST', 'url' => route('add_image_to_album'), 'enctype' => 'multipart/form-data', 'files' => true ]) !!}
             <input type="hidden" name="album_id" value="{{$album->id}}" />
             <fieldset>
                 <legend>Add an Image to {{$album->name}}</legend>
@@ -41,11 +40,11 @@
                 </div>
                 <div class="form-group">
                     <label for="image">Select an Image</label>
-                    {{ Form::file('image') }}
+                    {{ Form::file('image[]', ['multiple' => true]) }}
                 </div>
                 <button type="submit" class="btnbtn-default">Add Image!</button>
             </fieldset>
-        </form>
+        {!! Form::close() !!}
     </div>
 </div> <!-- /container -->
 </body>

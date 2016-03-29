@@ -35,6 +35,7 @@ class AlbumsController extends Controller
     public function getAlbum($id)
     {
         $data['album'] = $this->album->with('Photos')->find($id);
+        $data['albums'] = $this->album->all();
 
         return view('album')->with($data);
     }

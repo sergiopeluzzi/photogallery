@@ -55,11 +55,22 @@
         @foreach($album->Photos as $photo)
             <div class="col-lg-3">
                 <div class="thumbnail" style="max-height: 350px;min-height: 350px;">
-                    <img alt="{{$album->name}}" src="/albums/{{$photo->image}}">
+                    <img alt="{{ $album->name }}" src="/albums/{{ $photo->image }}">
                     <div class="caption">
-                        <p>{{$photo->description}}</p>
-                        <p><p>Created date:  {{ date("d F Y",strtotime($photo->created_at)) }} at {{ date("g:ha",strtotime($photo->created_at)) }}</p></p>
-                        <a href="{{ route('delete_image', ['id'=>$photo->id])}}" onclick="return confirm('Are you sure?')"><button type="button" class="btnbtn-danger btn-small">Delete Image </button></a>
+                        <p>{{ $photo->description }}</p>
+                        <p>Created date:  {{ date("d F Y",strtotime($photo->created_at)) }}at {{ date("g:ha",strtotime( $photo->created_at )) }}</p>
+                        <a href="{{ route('delete_image',array('id'=>$photo->id))}}" onclick="returnconfirm('Are you sure?')"><button type="button" class="btn btn-danger btn-small">Delete Image</button></a>
+                        <p>Move image to another Album :</p>
+                        <form name="movephoto" method="POST" action="{{ route('move_image')}}">
+                            {!! Form::hidden('_token', csrf_token()) !!}
+                            <select name="new_album">
+                                @foreach($albums as $others)
+                                    <option value="{{ $others->id }}">{{ $others->name }}</option>
+                                @endforeach
+                            </select>
+                            <input type="hidden" name="photo" value="{{ $photo->id }}" />
+                            <button type="submit" class="btn btn-smallbtn-info" onclick="return confirm('Are you sure?')">Move Image</button>
+                        </form>
                     </div>
                 </div>
             </div>
