@@ -1,10 +1,10 @@
 <?php
 
-namespace App\Http\Controllers\Auth;
+namespace PhotoGallery\Http\Controllers\Auth;
 
-use App\User;
+use PhotoGallery\User;
 use Validator;
-use App\Http\Controllers\Controller;
+use PhotoGallery\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\ThrottlesLogins;
 use Illuminate\Foundation\Auth\AuthenticatesAndRegistersUsers;
 

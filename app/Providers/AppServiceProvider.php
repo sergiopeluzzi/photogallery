@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Providers;
+namespace PhotoGallery\Providers;
 
 use Illuminate\Support\ServiceProvider;
 
