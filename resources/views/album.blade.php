@@ -26,10 +26,10 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
         </button>
-        <a class="navbar-brand" href="/">Awesome Albums</a>
+        <a class="navbar-brand" href="/">Shekiná Galeria</a>
         <div class="nav-collapse collapse">
             <ul class="nav navbar-nav">
-                <li><a href="{{ route('create_album_form')}}">Create New Album</a></li>
+                <li><a href="{{ route('create_album_form')}}">Criar Novo Album</a></li>
             </ul>
         </div><!--/.nav-collapse -->
     </div>
@@ -38,15 +38,15 @@
 
     <div class="starter-template">
         <div class="media">
-            <img class="media-object pull-left" alt="{{$album->name}}" src="/albums/{{$album->cover_image}}" width="350px">
+            <img class="media-object pull-left" alt="{{ $album->name }}" src="/albums/{{ $album->cover_image }}" width="350px">
             <div class="media-body">
-                <h2 class="media-heading" style="font-size: 26px;">Album Name:</h2>
+                <h2 class="media-heading" style="font-size: 26px;">Nome:</h2>
                 <p>{{$album->name}}</p>
                 <div class="media">
-                    <h2 class="media-heading" style="font-size: 26px;">AlbumDescription :</h2>
+                    <h2 class="media-heading" style="font-size: 26px;">Descrição:</h2>
                     <p>{{$album->description}}<p>
-                        <a href="{{ route('add_image', ['id'=>$album->id])}}"><button type="button" class="btn btn-primary btn-large">Add New Image to Album</button></a>
-                        <a href="{{ route('delete_album', ['id'=>$album->id])}}" onclick="return confirm('Are yousure?')"><button type="button" class="btn btn-danger btn-large">Delete Album</button></a>
+                        <a href="{{ route('add_image', ['id'=>$album->id])}}"><button type="button" class="btn btn-primary btn-large">Adicionar Fotos ao Album</button></a>
+                        <a href="{{ route('delete_album', ['id'=>$album->id])}}" onclick="return confirm('Tem certeza?')"><button type="button" class="btn btn-danger btn-large">Deletar Album</button></a>
                 </div>
             </div>
         </div>
@@ -58,9 +58,10 @@
                     <img alt="{{ $album->name }}" src="/albums/{{ $photo->image }}">
                     <div class="caption">
                         <p>{{ $photo->description }}</p>
-                        <p>Created date:  {{ date("d F Y",strtotime($photo->created_at)) }}at {{ date("g:ha",strtotime( $photo->created_at )) }}</p>
-                        <a href="{{ route('delete_image',array('id'=>$photo->id))}}" onclick="returnconfirm('Are you sure?')"><button type="button" class="btn btn-danger btn-small">Delete Image</button></a>
-                        <p>Move image to another Album :</p>
+                        <p>Criação:  {{ date("d/m/Y",strtotime($photo->created_at)) }} às {{ date("g:ha", strtotime( $photo->created_at )) }}</p>
+                        <a href="{{ route('delete_image',array('id'=>$photo->id))}}" onclick="return confirm('Tem certeza?')"><button type="button" class="btn btn-danger btn-small">Excluir Foto</button></a>
+                        <br><br>
+                        <p>Mover Foto para outro Album :</p>
                         <form name="movephoto" method="POST" action="{{ route('move_image')}}">
                             {!! Form::hidden('_token', csrf_token()) !!}
                             <select name="new_album">
@@ -69,7 +70,7 @@
                                 @endforeach
                             </select>
                             <input type="hidden" name="photo" value="{{ $photo->id }}" />
-                            <button type="submit" class="btn btn-smallbtn-info" onclick="return confirm('Are you sure?')">Move Image</button>
+                            <button type="submit" class="btn btn-smallbtn-info" onclick="return confirm('Tem certeza?')">Mover Foto</button>
                         </form>
                     </div>
                 </div>

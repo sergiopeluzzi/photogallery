@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width,initial-scale=1.0">
-    <title>Laravel PHP Framework</title>
+    <title>Shekina | File Uploader</title>
     <!-- Latest compiled and minified CSS -->
     <link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0-rc1/css/bootstrap.min.css" rel="stylesheet">
 
@@ -21,7 +21,7 @@
                 ?>
                 <button type="button" class="close" data-dismiss="alert">×</button>
 
-                <h4>Warning!</h4>
+                <h4>Atenção!</h4>
                 <ul>
                     @foreach($messages as $message)
                         {{$message}}
@@ -33,16 +33,16 @@
         {!! Form::open(['name' => 'addimagetoalbum', 'method' => 'POST', 'url' => route('add_image_to_album'), 'enctype' => 'multipart/form-data', 'files' => true ]) !!}
             <input type="hidden" name="album_id" value="{{$album->id}}" />
             <fieldset>
-                <legend>Add an Image to {{$album->name}}</legend>
+                <legend>Adicionar foto à {{$album->name}}</legend>
                 <div class="form-group">
-                    <label for="description">Image Description</label>
-                    <textarea name="description" type="text" class="form-control" placeholder="Imagedescription"></textarea>
+                    <label for="description">Descrição</label>
+                    <textarea name="description" type="text" class="form-control" placeholder="Descrição das imagens"></textarea>
                 </div>
                 <div class="form-group">
-                    <label for="image">Select an Image</label>
+                    <label for="image">Selecione as fotos</label>
                     {{ Form::file('image[]', ['multiple' => true]) }}
                 </div>
-                <button type="submit" class="btnbtn-default">Add Image!</button>
+                <button type="submit" class="btnbtn-default">Aicionar</button>
             </fieldset>
         {!! Form::close() !!}
     </div>

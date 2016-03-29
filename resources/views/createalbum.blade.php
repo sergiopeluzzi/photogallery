@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width,initial-scale=1.0">
-    <title>Create an Album</title>
+    <title>Shekina Galeria</title>
     <!-- Latest compiled and minified CSS -->
     <link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0-rc1/css/bootstrap.min.css" rel="stylesheet">
 
@@ -18,10 +18,10 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
         </button>
-        <a class="navbar-brand" href="/">Awesome Albums</a>
+        <a class="navbar-brand" href="/">Shekina Galeria</a>
         <div class="nav-collapse collapse">
             <ul class="nav navbar-nav">
-                <li class="active"><a href="{{URL::route('create_album_form')}}">CreateNew Album</a></li>
+                <li class="active"><a href="{{ route('create_album_form')}}">Criar Novo Album</a></li>
             </ul>
         </div><!--/.nav-collapse -->
     </div>
@@ -49,20 +49,20 @@
         <form name="createnewalbum" method="POST" action="{{ route('create_album')}}" enctype="multipart/form-data">
             <fieldset>
                 {!! Form::hidden('_token', csrf_token()) !!}
-                <legend>Create an Album</legend>
+                <legend>Criar Album</legend>
                 <div class="form-group">
-                    <label for="name">Album Name</label>
-                    <input name="name" type="text" class="form-control" placeholder="Album Name" value="{{old('name')}}">
+                    <label for="name">Nome</label>
+                    <input name="name" type="text" class="form-control" placeholder="Nome do Album" value="{{ old('name') }}">
                 </div>
                 <div class="form-group">
-                    <label for="description">Album Description</label>
-                    <textarea name="description" type="text" class="form-control" placeholder="Albumdescription">{{old('descrption')}}</textarea>
+                    <label for="description">Descrição</label>
+                    <textarea name="description" type="text" class="form-control" placeholder="Descrição do Album">{{ old('descrption') }}</textarea>
                 </div>
                 <div class="form-group">
-                    <label for="cover_image">Select a Cover Image</label>
+                    <label for="cover_image">Foto da Capa</label>
                     {{ Form::file('cover_image')}}
                 </div>
-                <button type="submit" class="btnbtn-default">Create!</button>
+                <button type="submit" class="btnbtn-default">Criar!</button>
             </fieldset>
         </form>
     </div>
