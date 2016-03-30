@@ -24,3 +24,6 @@ Route::post('/addimage', ['as' => 'add_image_to_album','uses' => 'ImagesControll
 Route::get('/deleteimage/{id}', ['as' => 'delete_image','uses' => 'ImagesController@getDelete']);
 Route::post('/moveimage', ['as' => 'move_image', 'uses' => 'ImagesController@postMove']);
 
+// Galery Routes
+Route::get('/gallery', ['as' => 'gallery','uses' => 'ImagesController@getGallery']);
+Route::get('/gallery/{id}', ['as' => 'photo_gallery','uses' => 'ImagesController@getPhotoGallery']);

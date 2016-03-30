@@ -21,7 +21,6 @@ class ImagesController extends Controller
 
     public function __construct(Album $album, Image $image)
     {
-
         $this->album = $album;
         $this->image = $image;
     }
@@ -91,5 +90,19 @@ class ImagesController extends Controller
         $image->album_id = $request->get('new_album');
         $image->save();
         return redirect()->route('show_album', ['id' => $request->get('new_album')]);
+    }
+
+    public function getGallery()
+    {
+        $data['albums'] = $this->album->with('Photos')->orderBy('created_at', 'DESC')->get();
+
+        return view('gallery')->with($data);
+    }
+
+    public function getPhotoGallery($id)
+    {
+        $data['album'] = $this->album->with('Photos')->find($id);
+
+        return view('photogallery')->with($data);
     }
 }
