@@ -44,7 +44,7 @@
         <form name="login" method="POST" action="{{ route('login')}}" enctype="multipart/form-data">
             <fieldset>
                 {!! Form::hidden('_token', csrf_token()) !!}
-                <legend>Criar Album</legend>
+                <legend>Login</legend>
                 <div class="form-group">
                     <label for="name">Nome</label>
                     <input name="name" type="text" class="form-control" placeholder="Nome do Album" value="{{ old('name') }}">
