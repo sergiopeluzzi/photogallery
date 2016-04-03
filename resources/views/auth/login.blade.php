@@ -47,7 +47,7 @@
                 <legend>Login</legend>
                 <div class="form-group">
                     <label for="name">Nome</label>
-                    <input name="name" type="text" class="form-control" placeholder="Nome do Album" value="{{ old('name') }}">
+                    <input name="name" type="text" class="form-control" placeholder="Email" value="{{ old('name') }}">
                 </div>
                 <div class="form-group">
                     <label for="password">Senha</label>
