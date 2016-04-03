@@ -10,7 +10,7 @@
 | and give it the controller to call when that URI is requested.
 |
 */
-Route::group(['middleware' => 'auth'], function() {
+Route::group(['middleware' => 'auth.basic'], function() {
     // Album Routes
     Route::get('/', ['as' => 'index','uses' => 'AlbumsController@getList']);
     Route::get('/createalbum', ['as' => 'create_album_form','uses' => 'AlbumsController@getForm']);
