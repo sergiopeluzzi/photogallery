@@ -46,12 +46,12 @@
                 {!! Form::hidden('_token', csrf_token()) !!}
                 <legend>Login</legend>
                 <div class="form-group">
-                    <label for="name">Nome</label>
-                    <input name="name" type="text" class="form-control" placeholder="Email" value="{{ old('name') }}">
+                    <label for="email">Nome</label>
+                    <input name="email" type="text" class="form-control" placeholder="Email" value="{{ old('name') }}">
                 </div>
                 <div class="form-group">
                     <label for="password">Senha</label>
-                    <input name="password" type="text" class="form-control" placeholder="Senha" value="{{ old('descrption') }}" >
+                    <input name="password" type="password" class="form-control" placeholder="Senha" value="{{ old('descrption') }}" >
                 </div>
                 <button type="submit" class="btnbtn-default">Entrar</button>
             </fieldset>
