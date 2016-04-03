@@ -43,8 +43,11 @@
             @endforeach
         </ul>
     </div>
-
+    <div>
+        <p align="center"><a href="{{ route('gallery') }}" class="btn btn-big btn-primary">Voltar</a></p>
+    </div>
 </div>
+
 <!-- JQuery -->
 <script src="{{ asset('assets/flexslider/bower_components/jquery/dist/jquery.min.js') }}"></script>
 <!-- FlexSlider -->
