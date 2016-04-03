@@ -43,9 +43,7 @@
             @endforeach
         </ul>
     </div>
-    <div>
-        <p align="center"><a href="{{ route('gallery') }}" class="btn btn-big btn-primary">Voltar</a></p>
-    </div>
+    <p align="center"><a href="{{ route('gallery') }}" class="btn btn-big btn-primary">Voltar</a></p>
 </div>
 
 <!-- JQuery -->
