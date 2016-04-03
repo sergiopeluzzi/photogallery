@@ -34,15 +34,6 @@
             @endforeach
         </ul>
     </div>
-    <div id="carousel" class="flexslider">
-        <ul class="slides">
-            @foreach($album->Photos as $photo)
-                <li>
-                    <img src="{{asset('albums') . '/' . $photo->image}}"/>
-                </li>
-            @endforeach
-        </ul>
-    </div>
     <div align="center"><a href="{{ route('gallery') }}" class="btn btn-big btn-primary">Voltar</a></div>
 </div>
 
@@ -54,22 +45,8 @@
 <script>
     $(window).load(function() {
         // The slider being synced must be initialized first
-        $('#carousel').flexslider({
-            animation: "slide",
-            controlNav: false,
-            animationLoop: false,
-            slideshow: false,
-            itemWidth: 210,
-            itemMargin: 5,
-            asNavFor: '#slider'
-        });
-
-        $('#slider').flexslider({
-            animation: "slide",
-            controlNav: false,
-            animationLoop: false,
-            slideshow: false,
-            sync: "#carousel"
+        $('.flexslider').flexslider({
+            animation: "slide"
         });
     });
 </script>
