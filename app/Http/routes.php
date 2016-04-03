@@ -27,3 +27,8 @@ Route::group(['middleware' => 'auth'], function() {
 // Galery Routes
 Route::get('/gallery', ['as' => 'gallery','uses' => 'ImagesController@getGallery']);
 Route::get('/gallery/{id}', ['as' => 'photo_gallery','uses' => 'ImagesController@getPhotoGallery']);
+
+// Login Routes
+Route::get('/login', ['as' => 'login', 'uses' => 'Auth\AuthController@getLogin']);
+Route::post('/login', ['as' => 'login', 'uses' => 'Auth\AuthController@postLogin']);
+Route::get('/logout', ['as' => 'logout', 'uses' => 'Auth\AuthController@getLogout']);
